@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>dash.js Rocks</title>
+    <title>Moodle Player</title>
     <style>
         video {
             width: 640px;
@@ -16,7 +16,8 @@
 <script src="https://cdn.dashjs.org/latest/modern/umd/dash.all.min.js"></script>
 <script>
     (function () {
-        var url = "https://player.vimeo.com/external/1008083176.mpd?s=ca5536dcc55d3777b5c62ca3f0c0a371149b4a0b&logging=false";
+        var params = new URLSearchParams(window.location.search);
+        var url = params.get("url");
         var player = dashjs.MediaPlayer().create();
         player.initialize(document.querySelector("#videoPlayer"), url, true);
     })();
